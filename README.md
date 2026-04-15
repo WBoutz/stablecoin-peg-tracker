@@ -43,4 +43,6 @@ python peg_tracker.py
 
 ```
 USDC | Price: $0.9987 | 24h: -0.13% | Deviation: -0.13% | Status: Stable
+USDT | Price: $1.0012 | 24h: +0.12% | Deviation: +0.12% | Status: Stable
+DAI  | Price: $0.9995 | 24h: -0.05% | Deviation: -0.05% | Status: Stable
 ```
