@@ -50,19 +50,16 @@ def format_output(symbol, price, change_24h, deviation, status):
 
 
 def main():
-    symbol = input("Enter stablecoin symbol (USDC, USDT, DAI): ").upper()
-    coin_id = get_coin_id(symbol)
-    if coin_id is None:
-        print("Invalid input. Supported assets: USDC, USDT, DAI")
-        return
+    symbols = ["USDC", "USDT", "DAI"]
 
-    price, change_24h = fetch_coin_data(coin_id)
+    for symbol in symbols:
+        coin_id = get_coin_id(symbol)
+        price, change_24h = fetch_coin_data(coin_id)
+        deviation = calculate_peg_deviation(price)
+        status = classify_peg_status(deviation)
 
-    deviation = calculate_peg_deviation(price)
-    status = classify_peg_status(deviation)
-
-    output = format_output(symbol, price, change_24h, deviation, status)
-    print(output)
+        output = format_output(symbol, price, change_24h, deviation, status)
+        print(output)
 
 
 if __name__ == "__main__":
